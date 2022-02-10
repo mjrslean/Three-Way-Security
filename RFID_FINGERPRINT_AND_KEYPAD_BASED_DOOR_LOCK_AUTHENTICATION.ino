@@ -1,3 +1,4 @@
+//All required libraries
 #include <Adafruit_Fingerprint.h>
 #include <MFRC522.h>
 #include <LiquidCrystal_I2C.h>
@@ -6,13 +7,14 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial mySerial(7, 8);
-SoftwareSerial sim800(5, 6); 
+SoftwareSerial sim800(5, 6);  // SoftwareSerial SIM800(Rx, Tx)
 LiquidCrystal_I2C lcd(0x27, 20, 2);
 MFRC522 mfrc522(10, 9); // MFRC522 mfrc522(SS_PIN, RST_PIN)   
 
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 
-String number = "";
+//Initialize Pins for LED's, relay and piezo buzzer
+String number = "";   //Change your number with your country code
 const int PiezoPin = 1;    
 const int RedPin= 2;
 const int BluePin= 3;
@@ -22,15 +24,18 @@ char password[6];
 boolean RFIDMode = true;
 boolean FINGERPRINTMode = true; // boolean to change modes
 
-char initial_password[6] = {'5', '4', '3', '4', '2', '1'};  
-String cardUID ="";  
+char initial_password[6] = {'5', '4', '3', '4', '2', '1'};  // Variable to store initial password
+// String to store CardUID of tag. 
+String cardUID ="";   //Change it with your Card's UID 
 
-char key_pressed = 0; 
+char key_pressed = 0; //Variable to store incoming keys
 uint8_t i = 0;  
 
+//Defining how many rows and columns your keypad have
 const byte rows = 4;
 const byte columns = 3;
 
+//Keypad pin map
 char keymap[rows][columns] = {
   {'1', '2', '3'},
   {'4', '5', '6'},
@@ -38,10 +43,11 @@ char keymap[rows][columns] = {
   {'*', '0', '#'}
   };
 
-
+//Initializing pins for keypad
 byte row_pins[rows] = {A1, A5, A4, A3};
 byte column_pins[columns] = {A2, A0, 0};
 
+//Create instance for keypad
 Keypad keypad = Keypad(makeKeymap(keymap), row_pins, column_pins, rows, columns);
 
 void setup() {
@@ -60,23 +66,30 @@ void setup() {
   lcd.setCursor(0, 1);
   lcd.print("     LOCK    ");
 
+   //Turn on the LED
   digitalWrite(RedPin, HIGH); 
   digitalWrite(BluePin, HIGH); 
   delay(500); 
+   //Turn off the LED
   digitalWrite(BluePin, LOW); 
   digitalWrite(RedPin, LOW); 
   delay(500); 
   
+  //Turn on the LED
   digitalWrite(RedPin, HIGH); 
   digitalWrite(BluePin, HIGH); 
   delay(500);
+  //Turn off the LED
   digitalWrite(BluePin, LOW); 
   digitalWrite(RedPin, LOW); 
   delay(500); 
-
+  
+   //Arduino communicates with SIM800 at a baud rate of 9600
   sim800.begin(9600);
+   //AT command to set SIM800 to SMS mode
   sim800.print("AT+CMGF=1\r");
   delay(100);
+   //Set module to send SMS data to serial out upon receipt
   sim800.print("AT+CNMI=1,2,0,0,0\r");
   delay(100);
   
