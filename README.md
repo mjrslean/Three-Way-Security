@@ -30,10 +30,10 @@ Adafruit_Fingerprint.h
 
 ## Output
 
-** **Front Side** **
+**Front Side**
 ![Front](https://user-images.githubusercontent.com/99194388/168486520-8dc28796-bbc6-4122-907b-7eb82f07c57b.jpg)
 
-** **Back Side** **
+**Back Side**
 ![Back](https://user-images.githubusercontent.com/99194388/168486577-e783cfc3-55d8-4c80-80f5-f7eb2b007ec9.jpg)
 
 
