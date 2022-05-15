@@ -31,19 +31,34 @@ In the alert system, the GSM module will notify the user if someone taps the wro
 
 ## Software Set-Up for RFID and Fingerprint Sensor
 
+**FINGERPRINT SENSOR**
+
 > To start with, we will enroll fingerprints via Arduino.
 In enrolling via Arduino. open **Files ->Examples ->Adafruit Fingerprint Sensor Library -> enroll** then upload it to your Arduino.
 <div class="inline">
-<img src="https://user-images.githubusercontent.com/99194388/168487185-9e451ce5-4a99-447c-aee9-925e33d82804.png" width="400">
-<img src="https://user-images.githubusercontent.com/99194388/168487379-36faf5bf-89b1-4a42-8456-a3f39965d127.png" width="400">
+<img src="https://user-images.githubusercontent.com/99194388/168488031-35f7919e-2044-4170-ad2b-de6c8e9578e6.png" width="400">
+<img src="https://user-images.githubusercontent.com/99194388/168488011-66cb81f4-67ef-483a-9e3f-894c0b75a9a9.png" width="400">
+
 </div> <br>
 
 > To test if the fingerprint scanner can really detect your fingerprint, go to:
 open **Files -> Examples -> Adafruit Fingerprint Sensor Library -> fingerprint** and upload it to your Arduino.
 Open up the serial monitor at 9600 baud and when prompted, place your finger against the sensor. You should see the message below. “Confidence” is a score number (from 0 to 255) that indicates how good of a match the print is. The higher the value, the better match we have.
 <div class="inline">
-<img src="https://user-images.githubusercontent.com/99194388/168487787-dec44fa8-d540-4581-a926-729426aca742.png" width="400">
-<img src="https://user-images.githubusercontent.com/99194388/168487796-c21ef844-f9ce-4526-b6ab-8bf50dfa8a72.png" width="400">
+<img src="https://user-images.githubusercontent.com/99194388/168488050-4cdb799a-d89c-4896-9ff1-8cd7de30ddb0.png" width="400">
+<img src="https://user-images.githubusercontent.com/99194388/168488065-7ddd7d1f-0104-4cd8-82fb-43152308dd8e.png" width="400">
+</div>
+
+<br><br>
+**RFID MFRC522**
+
+>To start with, we need to identify the card UID.
+In knowing via Arduino. open **Files ->Examples -> MFRC522 -> DumpInfo** then upload it to your Arduino.
+Open up the serial monitor at 9600 baud and when prompted, tap your card and keychain tag against the sensor. You should see the message below. Card UID is the unique number that identifies the RFID tag.
+
+<div class="inline">
+<img src="https://user-images.githubusercontent.com/99194388/168488180-6d909d2e-cf39-4c2d-8444-a20594414a96.png" width="400">
+<img src="https://user-images.githubusercontent.com/99194388/168488178-d04603ad-26d3-4bf8-ae7a-7785274f412a.png" width="400">
 </div>
 
 ## Schematic Diagram
