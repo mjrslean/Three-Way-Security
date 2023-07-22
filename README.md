@@ -4,9 +4,13 @@ RFID, FINGERPRINT, AND KEYPAD BASED DOOR LOCK WITH ALERT SYSTEM USING ARDUINO
 
 ## Basic Operations
 
-On power-up, the LCD prompt a message *"Security Door lock, Scan your fingerprint first."* If the user correctly scans their fingerprint that has been enrolled in the chip, the blue led lights for a few seconds. If not, LCD will prompt a message indicating an error while the red led, and the piezo buzzer will be activated for a few seconds. If scanning fingerprint is now successful, the user must tap their card for RFID. If the serial number of that card matches the information embedded in the source code, the blue led lights for a few seconds. If the serial number doesn't match, LCD will prompt a message indicating an error while the red led, and the piezo buzzer will be activated for a few seconds. If scanning the RFID is now successful, the user must type their password via matrix keypad while the blue led lights for a few seconds that is enough to open the solenoid lock. 
+Upon powering up, the LCD displays the message, "Security Door locked, Please scan your enrolled fingerprint first." If the user successfully scans their enrolled fingerprint, the blue LED will illuminate for a few seconds. If the fingerprint scan is unsuccessful, the LCD will prompt an error message while the red LED and piezo buzzer are activated for a few seconds.
 
-In the alert system, the GSM module will notify the user if someone taps the wrong tag, type the incorrect password, and try to scan their fingerprint that is not enrolled. It also notifies the user if the solenoid lock is open and close.
+If the fingerprint scan is not successful, the user needs to tap their RFID card. If the card's serial number matches the information embedded in the source code, the blue LED will light up for a few seconds. If the serial number doesn't match, the LCD will display an error message, and the red LED and piezo buzzer will be activated for a few seconds.
+
+Once the RFID scan is successful, the user must enter their password via the matrix keypad. During this process, the blue LED will light up for a few seconds, indicating that the solenoid lock will open.
+
+As part of the alert system, the GSM module will notify the user in the following scenarios: when someone taps the wrong tag, enters an incorrect password, or attempts to scan an unenrolled fingerprint. Additionally, it will send notifications when the solenoid lock is opened or closed.
 
 ## Devices Used
 
